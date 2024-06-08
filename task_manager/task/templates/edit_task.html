@@ -1,0 +1,37 @@
+{%extends "base.html"%} {%block title%} Edit Task {% endblock %} 
+{%block links%}
+<li class="nav-item">
+    <a class="nav-link" href="/">Home</a>
+</li> 
+{%endblock%}
+{%block content%} 
+<div class="row">
+    <div class="card" style="margin:50% auto;">
+        <div class="card-body">
+            <form action="../api/edit/" method="POST" style="width: 100%;">
+                <input type="hidden" name="id" id="id" value="{{post.id}}">
+                <div class="mb-3"> 
+                    <h2>Post</h2>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Titulo</label>
+                    <input class="form-text" type="text" name="title" id="title" value="{{post.title}}"> 
+                </div>   
+                <div class="mb-3">
+                    <label for="" class="form-label">Content</label>
+                    <textarea name="content" id="content" class="form-text" cols="50"> {{post.content}} </textarea>
+                </div>    
+                <div class="mb-3">
+                    <label for="" class="form-label">Time</label>
+                    <input class="form-text" type="date" name="date" id="date" value="{{post.date|date:'Y-m-d'}}">  
+                </div>     
+                <input type="hidden" name="id_user" id="id_user" value="{{post.id_user}}">  
+                <div style="width: 100%;display:flex;justify-content:center;">
+                    <button type="submit" style="width: 45%;margin-right:15px;"  class="btn btn-light border border-dark">Submit</button>
+                    <a href="/" style="width: 45%;" class="btn btn-return border border-dark">Return</i></a> 
+                </div> 
+            </form>
+        </div>
+    </div> 
+</div> 
+{%endblock%}
